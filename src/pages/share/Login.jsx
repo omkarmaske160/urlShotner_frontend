@@ -49,20 +49,22 @@ const Login = () => {
   }, [user, navigate]);
 
   return (
-    <section className="bg-cover bg-center bg-no-repeat min-h-screen flex items-center justify-center w-full" style={{ backgroundImage: "url('/src/assets/Shortly.jpg')", }}>
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
-        <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
-              Sign in to your account
+    <section className=" bg-no-repeat min-h-screen flex items-center  justify-center w-full md:bg-cover md:bg-center bg-bottom" style={{ backgroundImage: "url('/src/assets/Shortly.jpg')" }}>
+      <div className="flex flex-col items-center justify-center px-6 py-8  mx-auto lg:py-0 ">
+        <div className="w-[100%]  rounded-lg shadow md:mt-20 md:w-[150%] xl:p-0">
+          <div className="p-8 space-y-6 md:space-y-8 sm:p-10">
+            <h1 className="text-3xl text-center font-extrabold leading-tight tracking-tight text-orange-950 md:text-4xl">
+              SignUp
             </h1>
-            <form className="space-y-4 md:space-y-6" onSubmit={formik.handleSubmit}>
+            <form className="space-y-6 md:space-y-8" onSubmit={formik.handleSubmit}>
               <div>
-                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Your email</label>
+                <label htmlFor="email" className="block mb-1 text-lg  font-semibold text-gray-900 bg-gradient-to-r from-gray-900 text-bold to-gray-500 bg-clip-text text-transparent">
+                  Your email
+                </label>
                 <input
                   {...formik.getFieldProps("email")}
                   type="text"
-                  className={emailClasses}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   id="email"
                   placeholder="name@company.com"
                 />
@@ -71,11 +73,13 @@ const Login = () => {
                 ) : null}
               </div>
               <div>
-                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">Password</label>
+                <label htmlFor="password" className="block mb-1 text-lg  font-semibold text-gray-900 bg-gradient-to-r from-gray-900 text-bold to-gray-500 bg-clip-text text-transparent">
+                  Password
+                </label>
                 <input
                   {...formik.getFieldProps("password")}
                   type="password"
-                  className={passwordClasses}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   id="password"
                   placeholder="••••••••"
                 />
@@ -105,6 +109,7 @@ const Login = () => {
         </div>
       </div>
     </section>
+
   );
 }
 
