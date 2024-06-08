@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
 export const adminApi = createApi({
     reducerPath: "adminApi",
-    baseQuery: fetchBaseQuery({ baseUrl: `${import.meta.env.VITE_BACKEND_URL}/api/v1/admin` , credentials : "include" }),
+    baseQuery: fetchBaseQuery({ baseUrl: `${import.meta.env.VITE_BACKEND_URL}/api/v1/admin`, credentials: "include" }),
     tagTypes: ["user"],
     endpoints: (builder) => {
         return {
@@ -16,14 +16,14 @@ export const adminApi = createApi({
                 transformResponse: data => data.result,
                 providesTags: ["user"]
             }),
-            getAdminUserUrls : builder.query({
+            getAdminUserUrls: builder.query({
                 query: id => {
                     return {
                         url: `/user/url/${id}`,
                         method: "GET"
                     }
                 },
-                transformResponse : data => data.result
+                transformResponse: data => data.result
             }),
             updateAdminUser: builder.mutation({
                 query: userData => {
@@ -33,10 +33,10 @@ export const adminApi = createApi({
                         body: userData
                     }
                 },
-                transformErrorResponse : err => err.data.message ,
+                transformErrorResponse: err => err.data.message,
                 invalidatesTags: ["user"]
             }),
-        
+
         }
     }
 })
