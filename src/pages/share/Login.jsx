@@ -49,7 +49,7 @@ const Login = () => {
   }, [user, navigate]);
 
   return (
-    <section className=" bg-no-repeat min-h-screen flex items-center  justify-center w-full md:bg-cover md:bg-center bg-bottom" style={{ backgroundImage: "url('/src/assets/Shortly.jpg')" }}>
+    <section className=" bg-no-repeat min-h-screen flex items-center  justify-center w-full md:bg-cover md:bg-center bg-bottom" style={{ backgroundImage: "url('./assets/Shortly.jpg')" }}>
       <div className="flex flex-col items-center justify-center px-6 py-8  mx-auto lg:py-0 ">
         <div className="w-[100%]  rounded-lg shadow md:mt-20 md:w-[150%] xl:p-0">
           <div className="p-8 space-y-6 md:space-y-8 sm:p-10">
