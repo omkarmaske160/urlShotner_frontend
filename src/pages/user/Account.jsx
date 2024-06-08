@@ -33,7 +33,7 @@ const UrlForm = () => {
             toast.error(error)
         }
     }, [isError])
-    const FrontendURL = String(`${import.meta.env.VITE_FRONTEND_URL}`)
+    const FrontendURL = String(`${import.meta.env.VITE_BACKEND_URL}`)
 
 
     // const { data } = useGetUrlQuery()
@@ -81,7 +81,7 @@ const UrlForm = () => {
 const UrlTable = () => {
     const [deleteUrl] = useDeleteUrlMutation();
     const { data } = useGetUrlQuery();
-    const FrontendURL = String(`${import.meta.env.VITE_FRONTEND_URL}`);
+    const FrontendURL = String(`${import.meta.env.VITE_BACKEND_URL}`);
     const [copySuccess, setCopySuccess] = useState({}); // Use an object to track copy success for each item
 
     const copyToClipboard = (url, itemId) => { // Pass itemId to track copy success for each item
