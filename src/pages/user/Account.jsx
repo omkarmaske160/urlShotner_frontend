@@ -9,20 +9,20 @@ import { Doughnut } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Account = () => {
-   
+
     return <>
         <UrlForm />
-        <UrlTable /> 
+        <UrlTable />
     </>
 }
 const UrlForm = () => {
-    const [addUrl,{isSuccess , isError , error , err}] = useAddUrlMutation()
+    const [addUrl, { isSuccess, isError, error, err }] = useAddUrlMutation()
     const [urldata, setUrlData] = useState({})
     const handleChange = e => {
         const { name, value } = e.target
-        setUrlData({...urldata,[name]:value})
+        setUrlData({ ...urldata, [name]: value })
     }
-    
+
     useEffect(() => {
         if (isSuccess) {
             toast.success("Data Added Success")
@@ -34,43 +34,43 @@ const UrlForm = () => {
         }
     }, [isError])
     const FrontendURL = String(`${import.meta.env.VITE_FRONTEND_URL}`)
-    
-    
+
+
     // const { data } = useGetUrlQuery()
     return <>
         <div className="container mx-auto mb-5">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div className="card">
-                    <div className="card-body">
-                        <div className="col-span-2">
+                    <div className="card-body ">
+                        <div className="col-span-2 mb-3">
                             <label htmlFor='longUrl' className="form-label">Paste a Long URL </label>
                             <input type="text" className="form-control" onChange={handleChange} name="longUrl" id="longUrl" placeholder="Example: https://www.google.com" />
                         </div>
-                        <div className="col-span-2">
+                        <div className="col-span-2 mb-3">
                             <label htmlFor='' className="form-label">Add a Label </label>
                             <input type="text" className="form-control" onChange={handleChange} name="label" id="label" placeholder="Example: instagram" />
                         </div>
-                        <div className="col-span-1">
+                        <div className="col-span-1 mb-3">
                             <label htmlFor='domain' className="form-label">Domain </label>
                             <input disabled type="text" className="form-control" id="domain" value={FrontendURL} placeholder="Example: https://www.google.com" />
                         </div>
-                        <div className="col-span-1">
+                        <div className="col-span-1 mb-3">
                             <label htmlFor='longUrl' className="form-label">Enter a Back half </label>
                             <input onChange={handleChange} name='shortUrl' type="text" className="form-control" id="longUrl" placeholder="Example: favourite Link" />
                         </div>
-                        <div className="col-span-2">
+                        <div className="col-span-2 mb-3">
                             <div className='alert alert-info my-3'>
                                 <span className='bi bi-magic'></span>
                                 End your Link with the words that will make it unique
                             </div>
                         </div>
-                        <button type="button" onClick={() => addUrl(urldata)} className="btn btn-sm btn-info btn-md">Generate Short URL</button>
+                        <button type="button" onClick={() => addUrl(urldata)} className="btn btn-sm h-10 font-bold text-lg text-slate-700 btn-info btn-md w-full">Generate Short URL</button>
                     </div>
                 </div>
-                <div className="card">
-                    <div className="card-body">
-                        <Stat />
-                    </div>
+                <div className="card h-full flex justify-center items-center py-2">
+
+                    <Stat />
+
                 </div>
             </div>
         </div>
@@ -164,34 +164,34 @@ const UrlTable = () => {
 };
 
 const Stat = () => {
-    const { data : urlData } = useGetUrlQuery()
-const data = {
-  labels: urlData && urlData.map(item => item.label ),
-  datasets: [
-    {
-      label: '# of Votes',
-      data: urlData && urlData.map(item => item.count),
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-      ],
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-      ],
-      borderWidth: 1,
-    },
-  ],
-};
-  return <Doughnut data={data} />;
+    const { data: urlData } = useGetUrlQuery()
+    const data = {
+        labels: urlData && urlData.map(item => item.label),
+        datasets: [
+            {
+                label: '# of Votes',
+                data: urlData && urlData.map(item => item.count),
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                ],
+                borderWidth: 1,
+            },
+        ],
+    };
+    return <Doughnut data={data} />;
 
 }
 export default Account

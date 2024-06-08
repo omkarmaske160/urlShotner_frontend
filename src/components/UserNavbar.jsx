@@ -16,7 +16,7 @@ const UserNavbar = () => {
         <nav className="bg-light mb-5">
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center py-4">
-                    <Link to="/user" className="font-bold text-lg">Account</Link>
+                    <Link to="/user" className="font-bold text-lg">URL-SHOTNER</Link>
                     <div className="flex items-center space-x-4">
                         <Link to="/user" className="text-gray-700 hover:text-gray-900">Home</Link>
                         <div className="relative">
