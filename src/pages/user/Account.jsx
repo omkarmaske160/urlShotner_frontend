@@ -6,14 +6,18 @@ import { FaRegClipboard } from "react-icons/fa";
 import { FaClipboardCheck } from "react-icons/fa";
 
 import { Doughnut } from 'react-chartjs-2';
+import FeaturesPage from './FeaturesPage';
+import Footer from '../../components/Footer';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Account = () => {
 
-    return <>
+    return <div className='bg-slate-900'>
         <UrlForm />
+        <FeaturesPage />
         <UrlTable />
-    </>
+        <Footer />
+    </div>
 }
 const UrlForm = () => {
     const [addUrl, { isSuccess, isError, error, err }] = useAddUrlMutation()
@@ -38,10 +42,10 @@ const UrlForm = () => {
 
     // const { data } = useGetUrlQuery()
     return <>
-        <div className="container mx-auto mb-5">
+        <div className="container  mx-auto py-5">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                <div className="card">
-                    <div className="card-body ">
+                <div className="card border-none  rounded-2xl">
+                    <div className="card-body bg-slate-800 rounded-2xl text-white ">
                         <div className="col-span-2 mb-3">
                             <label htmlFor='longUrl' className="form-label">Paste a Long URL </label>
                             <input type="text" className="form-control" onChange={handleChange} name="longUrl" id="longUrl" placeholder="Example: https://www.google.com" />
@@ -67,7 +71,7 @@ const UrlForm = () => {
                         <button type="button" onClick={() => addUrl(urldata)} className="btn btn-sm h-10 font-bold text-lg text-slate-700 btn-info btn-md w-full">Generate Short URL</button>
                     </div>
                 </div>
-                <div className="card h-full flex justify-center items-center py-2">
+                <div className="card h-full flex justify-center items-center py-2 bg-slate-800 rounded-2xl">
 
                     <Stat />
 
@@ -101,7 +105,7 @@ const UrlTable = () => {
 
     return data && (
         <div className="overflow-x-auto">
-            <table className="table border border-collapse border-gray-500">
+            <table className="table border text-white  border-collapse bg-slate-800  border-gray-500">
                 {/* head */}
                 <thead>
                     <tr>
@@ -191,7 +195,7 @@ const Stat = () => {
             },
         ],
     };
-    return <Doughnut data={data} />;
+    return <Doughnut data={data} className='' />;
 
 }
 export default Account
