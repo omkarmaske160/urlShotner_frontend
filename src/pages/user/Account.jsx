@@ -109,19 +109,19 @@ const UrlTable = () => {
                 {/* head */}
                 <thead>
                     <tr>
-                        <th className="border border-gray-500">Visit</th>
-                        <th className="border border-gray-500">short url</th>
-                        <th className="border border-gray-500">long url</th>
-                        <th className="border border-gray-500">Actual Link</th>
-                        <th className="border border-gray-500">count</th>
-                        <th className="border border-gray-500">Label</th>
-                        <th className="border border-gray-500">Action</th>
+                        <th className="border border-gray-600">Visit</th>
+                        <th className="border border-gray-600">short url</th>
+                        <th className="border border-gray-600">long url</th>
+                        <th className="border border-gray-600">Actual Link</th>
+                        <th className="border border-gray-600">count</th>
+                        <th className="border border-gray-600">Label</th>
+                        <th className="border border-gray-600">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {data.map(item => (
                         <tr key={item._id}>
-                            <td className="border border-gray-500">
+                            <td className="border border-gray-600">
                                 <a
                                     href={`${FrontendURL}/visit/${item.shortUrl}`}
                                     className="btn btn-primary"
@@ -131,9 +131,9 @@ const UrlTable = () => {
                                     Visit
                                 </a>
                             </td>
-                            <td className="border border-gray-500">{item.shortUrl}</td>
-                            <td className="border border-gray-500">{item.longUrl}</td>
-                            <td className="border border-gray-500 flex justify-between items-center">
+                            <td className="border border-gray-600">{item.shortUrl}</td>
+                            <td className="border border-gray-600">{item.longUrl}</td>
+                            <td className="border border-gray-600 flex justify-between items-center">
                                 <a href={`${FrontendURL}/visit/${item.shortUrl}`} target='_blank' className='block'>
                                     {`${FrontendURL}/visit/${item.shortUrl}`}
                                 </a>
@@ -142,9 +142,9 @@ const UrlTable = () => {
                                     onClick={() => copyToClipboard(`${FrontendURL}/visit/${item.shortUrl}`, item._id)} // Pass item ID
                                 />}
                             </td>
-                            <td className="border border-gray-500">{item.count}</td>
-                            <td className="border border-gray-500">{item.label}</td>
-                            <td className="border border-gray-500">
+                            <td className="border border-gray-600">{item.count}</td>
+                            <td className="border border-gray-600">{item.label}</td>
+                            <td className="border border-gray-600">
                                 {/* <button
                                     type="button"
                                     className="mx-2 btn btn-warning"
