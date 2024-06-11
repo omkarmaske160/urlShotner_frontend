@@ -176,20 +176,20 @@ const Stat = () => {
                 label: '# of Votes',
                 data: urlData && urlData.map(item => item.count),
                 backgroundColor: [
-                    'rgba(203, 213, 225, 0.2)', // slate-300
-                    'rgba(148, 163, 184, 0.2)', // slate-400
-                    'rgba(100, 116, 139, 0.2)', // slate-500
-                    'rgba(71, 85, 105, 0.2)',   // slate-600
-                    'rgba(51, 65, 85, 0.2)',    // slate-700
-                    'rgba(30, 41, 59, 0.2)',    // slate-800
+                    'rgba(255, 255, 255, 0.2)', // white
+                    'rgba(255, 99, 132, 0.2)',  // red
+                    'rgba(75, 192, 192, 0.2)',  // green
+                    'rgba(54, 162, 235, 0.2)',  // blue
+                    'rgba(255, 206, 86, 0.2)',  // yellow
+                    'rgba(153, 102, 255, 0.2)', // purple
                 ],
                 borderColor: [
-                    'rgba(203, 213, 225, 1)', // slate-300
-                    'rgba(148, 163, 184, 1)', // slate-400
-                    'rgba(100, 116, 139, 1)', // slate-500
-                    'rgba(71, 85, 105, 1)',   // slate-600
-                    'rgba(51, 65, 85, 1)',    // slate-700
-                    'rgba(30, 41, 59, 1)',    // slate-800
+                    'rgba(255, 255, 255, 1)', // white
+                    'rgba(255, 99, 132, 1)',  // red
+                    'rgba(75, 192, 192, 1)',  // green
+                    'rgba(54, 162, 235, 1)',  // blue
+                    'rgba(255, 206, 86, 1)',  // yellow
+                    'rgba(153, 102, 255, 1)', // purple
                 ],
                 borderWidth: 1,
             },
