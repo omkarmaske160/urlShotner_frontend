@@ -195,7 +195,7 @@ const Stat = () => {
             },
         ],
     };
-    return <Doughnut data={data} className='' />;
+    return <Doughnut data={data} className='w-[15rem]' />;
 
 }
 export default Account
