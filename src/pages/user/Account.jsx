@@ -71,7 +71,7 @@ const UrlForm = () => {
                         <button type="button" onClick={() => addUrl(urldata)} className="btn btn-sm h-10 font-bold text-lg text-slate-700 btn-info btn-md w-full">Generate Short URL</button>
                     </div>
                 </div>
-                <div className="card h-full flex justify-center items-center py-2 bg-slate-800 rounded-2xl">
+                <div className="card  flex justify-center items-center py-2 bg-slate-800 rounded-2xl">
 
                     <Stat />
 
