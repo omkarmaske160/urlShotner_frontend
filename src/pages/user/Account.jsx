@@ -8,6 +8,7 @@ import { FaClipboardCheck } from "react-icons/fa";
 import { Doughnut } from 'react-chartjs-2';
 import FeaturesPage from './FeaturesPage';
 import Footer from '../../components/Footer';
+import { useLogoutMutation } from '../../redux/api/authApi';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Account = () => {
@@ -37,6 +38,8 @@ const UrlForm = () => {
             toast.error(error)
         }
     }, [isError])
+
+
     const FrontendURL = String(`${import.meta.env.VITE_BACKEND_URL}`)
 
 
@@ -168,13 +171,15 @@ const UrlTable = () => {
 };
 
 const Stat = () => {
-    const { data: urlData } = useGetUrlQuery()
+    const { data: urlData, isError } = useGetUrlQuery();
+    const [logout] = useLogoutMutation();
+
     const data = {
-        labels: urlData && urlData.map(item => item.label),
+        labels: urlData ? urlData.map(item => item.label) : [],
         datasets: [
             {
                 label: '# of Votes',
-                data: urlData && urlData.map(item => item.count),
+                data: urlData ? urlData.map(item => item.count) : [],
                 backgroundColor: [
                     'rgba(255, 255, 255, 0.6)', // white
                     'rgba(255, 99, 132, 0.6)',  // red
@@ -195,7 +200,15 @@ const Stat = () => {
             },
         ],
     };
-    return <Doughnut data={data} />;
 
+    useEffect(() => {
+        if (isError && isError.status === 401) {
+            logout();
+        }
+    }, [isError, logout]);
+
+    console.log(isError);
+
+    return <Doughnut data={data} />;
 }
 export default Account
