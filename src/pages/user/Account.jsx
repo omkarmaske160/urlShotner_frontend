@@ -202,12 +202,14 @@ const Stat = () => {
     };
 
     useEffect(() => {
+        console.log(isError); // Log the entire isError object
         if (isError && isError.status === 401) {
             logout();
+            toast("login first")
         }
     }, [isError, logout]);
 
-    console.log(isError);
+    console.log(isError ? true : false);
 
     return <Doughnut data={data} />;
 }
